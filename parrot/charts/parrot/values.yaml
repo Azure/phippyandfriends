@@ -1,0 +1,9 @@
+replicaCount: 1
+image:
+  pullPolicy: Always
+service:
+  internalPort: 80
+  externalPort: 80
+ingress:
+  enabled: true
+  basedomain: <REPLACE WITH YOUR OWN AKS CLUSTER>.<YOUR REGION>.aksapp.io # replace with your own from the portal

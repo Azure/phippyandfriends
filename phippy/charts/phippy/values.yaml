@@ -1,0 +1,12 @@
+# Default values for PHP.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  pullPolicy: IfNotPresent
+service:
+  externalPort: 80
+  internalPort: 3333
+ingress:
+  enabled: false
+  #basedomain: CHANGE_TO_YOUR_DNS.REGION.aksapp.io # replace with your own from the portal # replace with your own from the portal

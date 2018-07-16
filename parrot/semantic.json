@@ -1,0 +1,22 @@
+{
+  "base": "semantic/",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "../wwwroot/semantic/",
+      "uncompressed": "../wwwroot/semantic/components/",
+      "compressed": "../wwwroot/semantic/components/",
+      "themes": "../wwwroot/semantic/themes/"
+    },
+    "clean": "../wwwroot/semantic/"
+  },
+  "permission": false,
+  "autoInstall": false,
+  "rtl": false,
+  "version": "2.3.2"
+}

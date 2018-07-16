@@ -1,0 +1,9 @@
+replicaCount: 1
+image:
+  pullPolicy: Always
+service:
+  internalPort: 3000
+  externalPort: 80
+ingress:
+  enabled: false
+  #basedomain: CHANGE_TO_YOUR_DNS.REGION.aksapp.io # replace with your own from the portal

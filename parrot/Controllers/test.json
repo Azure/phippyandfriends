@@ -1,0 +1,127 @@
+"metadata": {
+    "name": "nodeapp-nodeapp-66845c9868-phvqv",
+    "generateName": "nodeapp-nodeapp-66845c9868-",
+    "namespace": "default",
+    "selfLink": "/api/v1/namespaces/default/pods/nodeapp-nodeapp-66845c9868-phvqv",
+    "uid": "2c843057-75b3-11e8-bdbc-b20c0e5c020c",
+    "resourceVersion": "403506",
+    "creationTimestamp": "2018-06-22T00:28:24Z",
+    "labels": {
+        "app": "nodeapp-nodeapp",
+        "pod-template-hash": "2240175424"
+    },
+    "ownerReferences": [
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "ReplicaSet",
+            "name": "nodeapp-nodeapp-66845c9868",
+            "uid": "2c82728a-75b3-11e8-bdbc-b20c0e5c020c",
+            "controller": true,
+            "blockOwnerDeletion": true
+        }
+    ]
+},
+"spec": {
+    "volumes": [
+        {
+            "name": "default-token-w8ncl",
+            "secret": {
+                "secretName": "default-token-w8ncl",
+                "defaultMode": 420
+            }
+        }
+    ],
+    "containers": [
+        {
+            "name": "nodeapp",
+            "image": "phippy.azurecr.io/nodeapp:a11a2889166b4e3031ac506e35c238d9f8756fa3",
+            "ports": [
+                {
+                    "containerPort": 3000,
+                    "protocol": "TCP"
+                }
+            ],
+            "resources": {},
+            "volumeMounts": [
+                {
+                    "name": "default-token-w8ncl",
+                    "readOnly": true,
+                    "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always"
+        }
+    ],
+    "restartPolicy": "Always",
+    "terminationGracePeriodSeconds": 30,
+    "dnsPolicy": "ClusterFirst",
+    "serviceAccountName": "default",
+    "serviceAccount": "default",
+    "nodeName": "aks-agentpool-19990256-0",
+    "securityContext": {},
+    "imagePullSecrets": [
+        {
+            "name": "draft-pullsecret"
+        }
+    ],
+    "schedulerName": "default-scheduler",
+    "tolerations": [
+        {
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+        },
+        {
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+        }
+    ]
+},
+"status": {
+    "phase": "Running",
+    "conditions": [
+        {
+            "type": "Initialized",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2018-06-22T00:28:24Z"
+        },
+        {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2018-06-22T00:28:26Z"
+        },
+        {
+            "type": "PodScheduled",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2018-06-22T00:28:24Z"
+        }
+    ],
+    "hostIP": "10.240.0.4",
+    "podIP": "10.244.0.53",
+    "startTime": "2018-06-22T00:28:24Z",
+    "containerStatuses": [
+        {
+            "name": "nodeapp",
+            "state": {
+                "running": {
+                    "startedAt": "2018-06-22T00:28:26Z"
+                }
+            },
+            "lastState": {},
+            "ready": true,
+            "restartCount": 0,
+            "image": "phippy.azurecr.io/nodeapp:a11a2889166b4e3031ac506e35c238d9f8756fa3",
+            "imageID": "docker-pullable://phippy.azurecr.io/nodeapp@sha256:b6cddce8c015b215bf1268420825b9ec3fca9e4075aee42bacf264cd055c010f",
+            "containerID": "docker://874c69c9b6a8cf4c9bc820ef762d55133fffd43074f52f15f1cb6388f371e51a"
+        }
+    ],
+    "qosClass": "BestEffort"
+}

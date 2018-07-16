@@ -1,0 +1,4 @@
+apiVersion: v1
+description: This app represents Captain Kube, who is taking care of all the containers in the cluster.
+name: captainkube
+version: v0.1.0

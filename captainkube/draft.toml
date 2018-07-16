@@ -1,0 +1,10 @@
+[environments]
+  [environments.development]
+    name = "captainkube"
+    namespace = "phippyandfriends"
+    wait = true
+    watch = false
+    watch-delay = 2
+    auto-connect = false
+    dockerfile = ""
+    chart = ""

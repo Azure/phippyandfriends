@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - parrot</title>
+    <link rel="stylesheet" type="text/css" href="~/semantic/semantic.min.css">
+    <style type="text/css">
+    body {
+        background-color: #FFFFFF;
+    }
+    .ui.menu .item img.logo {
+        margin-right: 1.5em;
+    }
+    .main.container {
+        margin-top: 7em;
+    }
+    .wireframe {
+        margin-top: 2em;
+    }
+    .ui.footer.segment {
+        margin: 5em 0em 0em;
+        padding: 5em 0em;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+        <a href="/" class="header item">
+            <img class="logo" src="~/media/parrot.png">
+            parrot tells us whatever captain kube is saying is happening in the cluster
+        </a>
+        </div>
+    </div>
+
+    <div class="ui main container">
+    @RenderBody()
+    </div>
+
+    <div class="ui inverted vertical footer segment">
+        @RenderSection("Footer", required: false)
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

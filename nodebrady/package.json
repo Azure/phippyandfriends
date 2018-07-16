@@ -1,0 +1,23 @@
+{
+  "name": "nodebrady",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "koa": "^1.2.0",
+    "koa-logger": "^1.2.0",
+    "koa-static": "^2.0.0",
+    "koa-route": "^2.4.2",
+    "koa-compress": "^1.0.6",
+    "co-views": "^2.1.0",
+    "swig": "^1.3.2",
+    "co-body": "^4.0.0"
+  },
+  "devDependencies": {
+    "supertest": "^0.12.1",
+    "mocha": "^2.4.5"
+  }
+}

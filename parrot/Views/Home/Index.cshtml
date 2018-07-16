@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "parrot";
+}
+
+<ul id="pods">
+</ul>
+
+<div class="ui link cards" id="podcards" data-bind="foreach: pods">
+  <div class="ui card">
+    <div class="image">
+      <img data-bind="attr:{src: cardImageUrl}"/> 
+    </div>
+    <div class="content">
+      <a class="header"><span data-bind="text: container"></span></a>
+    </div>
+    <div class="extra content">
+      <span data-bind="text: name"></span>
+    </div>
+  </div>
+</div>
+
+@section footer
+{
+  <div class="ui centered seven wide column">
+    <h4 class="ui centered inverted header">Connection Status: <span id="connectionStatus">Idle</span></h4>
+  </div>
+}
+
+@section scripts
+{
+  <script src="~/scripts/knockout-3.4.2.js"></script>
+  <script src="~/scripts/signalr.min.js"></script>
+  <script src="~/scripts/daemon.js"></script>
+}

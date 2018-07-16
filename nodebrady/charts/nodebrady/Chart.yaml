@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Azure Brady in his Node.js attire.
+name: nodebrady
+version: v0.1.0
