@@ -4,10 +4,15 @@ kind: Ingress
 metadata:
   name: {{ template "fullname" . }}
   labels:
+    app: {{ template "fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: {{ .Release.Name }}.{{ .Values.basedomain }}
+  - host: {{ .Release.Name }}.{{ .Values.ingress.basedomain }}
     http:
       paths:
       - path: /
