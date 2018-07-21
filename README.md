@@ -4,6 +4,21 @@ The [Children's Guide to Kubernetes](https://azure.microsoft.com/en-us/resources
 
 We loved the story and the imagery in it and thought the characters from the Illustrated Guide would make for an interesting demo. The demo has a few services, each of which represent an individual character in the story, as well as some we added. Each service is written in a different language, showing how the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) cluster can run anything you can bring it. 
 
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+1. [Getting Started](#get-started)
+    1. [Clone and open the code](#clone-and-open-the-code)
+    1. [Get your public URL](#get-your-aks-ingress-url)
+    1. [Connect to your Azure Container Registry](#connect-to-your-registry)
+    1. [Deploy with Helm and Draft](#deploy-parrot-and-captain-kube-with-draft-and-helm)
+1. [Validate Deployment](#validate-the-deployment)
+    1. [Where is Phippy?](#but-where-is-phippy) 
+    1. [Watch in real time](#watch-in-real-time)
+    1. [Try scaling your apps](#try-scaling-your-apps)
+1. [Issues and Contributions](#issues)
+
+--- 
+
 ## Prerequisites
 
 Here's a short list of all the things you'll need to do. Don't worry - you'll be up and running in about thirty minutes.
