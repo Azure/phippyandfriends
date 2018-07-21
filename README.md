@@ -2,7 +2,7 @@
 
 The [Children's Guide to Kubernetes](https://azure.microsoft.com/en-us/resources/videos/the-illustrated-children-s-guide-to-kubernetes/) is a simple, gentle answer a father gives his daughter, when she inquisitively asked about Kubernetes. 
 
-We loved the story and the imagery in it and thought the characters from the Illustrated Guide would make for an interesting demo. The demo has a few services, each of which represent an individual character in the story, as well as some we added. Each service is written in a different language, showing how the AKS cluster can run anything you can bring it. 
+We loved the story and the imagery in it and thought the characters from the Illustrated Guide would make for an interesting demo. The demo has a few services, each of which represent an individual character in the story, as well as some we added. Each service is written in a different language, showing how the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) cluster can run anything you can bring it. 
 
 ## Prerequisites
 
