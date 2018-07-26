@@ -40,7 +40,7 @@ To get started, follow these simple steps.
 The Phippy and Friends repository is public. Just clone it to your local machine and open the folder up in Visual Studio Code to get started. 
 
 ```bash
-git clone https://github.com/bradygmsft/phippy-demo.git
+git clone https://github.com/Azure/phippyandfriends.git
 cd phippy-demo
 code .
 ```
@@ -85,7 +85,7 @@ az acr login -n <your ACR instance name> -g <your ACR instance resource group>
 
 Now you'll create the first two services, **parrot** and **captainkube**. 
 
-1. The captainkube service, a simple GoLang app, is represented by Captain Kube from the Children's Illustrated Guide to Kubernetes. This service constantly watches the pods running in the Kubernetes cluster. Whenever a pod is activated, updated, or deleted from the cluster, captainkube tells the parrot service what just happened. 
+1. The captainkube service, a simple Go app, is represented by Captain Kube from the Children's Illustrated Guide to Kubernetes. This service constantly watches the pods running in the Kubernetes cluster. Whenever a pod is activated, updated, or deleted from the cluster, captainkube tells the parrot service what just happened. 
 1. The parrot service is essentially an ASP.NET Core app with a Web API back-end. The Web API bubbles events up to the HTML client via a SignalR Hub. Parrot essentially "parrots" what captainkube is telling him in the form of [Semantic UI](http://semantic-ui.com) cards on the UI side. When services pop into the cluster, they're represented by characters shown in the cards. 
 
 These two baseline services need to be running first, so you can Draft them up into the cluster using the commands below. 
