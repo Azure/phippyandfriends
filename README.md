@@ -24,7 +24,7 @@ We loved the story and the imagery in it and thought the characters from the Ill
 Here's a short list of all the things you'll need to do. Don't worry - you'll be up and running in about thirty minutes.
 
 1. An [Azure](https://azure.microsoft.com/en-us/free/) subscription. You can [Sign up for Free](https://azure.microsoft.com/en-us/free/) and see for yourself how Azure Kubernetes Service (AKS) is the best place for developers using Kubernetes. 
-1. An Azure Kubernetes Service (AKS) Cluster, enabled with Http Application Routing (this is **on** by default when you create a cluster via the Azure portal). 
+1. An Azure Kubernetes Service (AKS) Cluster, [enabled with Http Application Routing](https://docs.microsoft.com/en-us/azure/aks/http-application-routing) (this is **on** by default when you create a cluster via the Azure portal). 
 1. An Azure Container Registry instance (or a Docker Hub account if you prefer to use Docker Hub).
 1. You'll need to install a few tools handy for developing with containers and Kubernetes, and the Azure CLI:
   1. [The Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
