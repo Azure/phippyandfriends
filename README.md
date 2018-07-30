@@ -171,6 +171,20 @@ Watch as more brady ninjas come to life!
 
 Phippy and Friends is open-source, and we'd love your contributions. Submit issues, then work those issues and send us a pull request. Customize the parrot dashboard with a theme, put the characters on a boat, launch them into space. We'd love to see what other characters you'll add to the dashboard!
 
+### Troubleshooting
+
+Sometimes a previous deployment would fail and you would receive a message like so:
+
+```sh
+error while releasing: could not upgrade release: rpc error: code = Unknown desc = "parrot" has no deployed releases
+```
+
+if that happens, you need to delete that failed deployment by running the following command, replacing `parrot` with the failed deployment name:
+
+```sh
+helm delete --purge parrot
+```
+
 ## Credits
 
 Some awesome people worked on the Phippy and Friends demo. [Stella Lin]() brought the idea to [Brady Gaster](), who then got a **ton** of help from [Ralph Squillace]() and [Ahmed Sabbour]() to bring it to life. As mentioned earlier, Phippy and Friends was originally inspired by a blog post written by [Matt](https://twitter.com/technosophos) [Butcher](http://technosophos.com/). 
