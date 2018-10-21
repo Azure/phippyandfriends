@@ -25,6 +25,7 @@ Here's a short list of all the things you'll need to do. Don't worry - you'll be
 
 1. An [Azure](https://azure.microsoft.com/en-us/free/) subscription. You can [Sign up for Free](https://azure.microsoft.com/en-us/free/) and see for yourself how Azure Kubernetes Service (AKS) is the best place for developers using Kubernetes. 
 1. An Azure Kubernetes Service (AKS) Cluster, [enabled with Http Application Routing](https://docs.microsoft.com/en-us/azure/aks/http-application-routing) (this is **on** by default when you create a cluster via the Azure portal). 
+    - *Important note: if your AKS cluster has RBAC enabled, you will need to run the following command to have `captainkube` able to read the information in the cluster: `kubectl create clusterrolebinding default-view --clusterrole=view --serviceaccount=phippyandfriends:default`.*
 1. An Azure Container Registry instance (or a Docker Hub account if you prefer to use Docker Hub). If you opt to use Azure Container Registry, make sure you [configure RBAC access so that AKS has the proper role assignment to access your ACR](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#grant-aks-access-to-acr).
 1. You'll need to install a few tools handy for developing with containers and Kubernetes, and the Azure CLI:
     1. [The Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
