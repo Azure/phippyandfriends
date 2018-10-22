@@ -32,7 +32,7 @@ function startConnection() {
         .then(() => {
             $('#connectionStatus').text('Connected');
             console.log('connection started');
-            try { ko.applyBindings(viewModel); } catch { }
+            try { ko.applyBindings(viewModel); } catch (err) { console.error(err); }
         })
         .catch(console.error);
 }
