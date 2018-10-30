@@ -198,6 +198,6 @@ helm delete --purge parrot
 
 ## Credits
 
-Some awesome people worked on the Phippy and Friends demo. [Stella Lin]() brought the idea to [Brady Gaster](), who then got a **ton** of help from [Ralph Squillace]() and [Ahmed Sabbour]() to bring it to life. As mentioned earlier, Phippy and Friends was originally inspired by a blog post written by [Matt](https://twitter.com/technosophos) [Butcher](http://technosophos.com/). 
+Some awesome people worked on the Phippy and Friends demo. [Stella Lin]() brought the idea to [Brady Gaster](), who then got a **ton** of help from [Ralph Squillace]() and [Ahmed Sabbour](http://twitter.com/sabbour) to bring it to life and [Mathieu Benoit](http://github.com/mathieu-benoit) for his Azure DevOps build pipeline. As mentioned earlier, Phippy and Friends was originally inspired by a blog post written by [Matt](https://twitter.com/technosophos) [Butcher](http://technosophos.com/). 
 
 You can help too, by submitting a pull request and adding your own contributions. When you do, make sure to add your contributions' summary to this section, too!
