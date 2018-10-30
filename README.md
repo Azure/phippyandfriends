@@ -15,6 +15,7 @@ We loved the story and the imagery in it and thought the characters from the Ill
     1. [Where is Phippy?](#but-where-is-phippy) 
     1. [Watch in real time](#watch-in-real-time)
     1. [Try scaling your apps](#try-scaling-your-apps)
+1. [Leverage Azure DevOps](#leverage-azure-devops)
 1. [Issues and Contributions](#issues)
 
 --- 
@@ -156,8 +157,6 @@ The final service is a basic Node.js application represented by the Node.js-deco
 
 You can cd into this service's folder and deploy it using `draft up` as you did with the others. But for fun, do this in a window that's side-by-side with the parrot dashboard. This way you can see services appear as you `draft up` and vanish as you `draft delete`. 
 
-
-
 ### Try Scaling your Apps
 
 Scale your nodebrady by running this:
@@ -167,6 +166,17 @@ kubectl scale deployment/nodebrady-nodebrady --replicas 3 --namespace phippyandf
 ```
 
 Watch as more brady ninjas come to life!
+
+## Leverage Azure DevOps
+
+You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create one Azure build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app by using its associated YAML definition:
+
+- [parrot/azure-pipelines.yml](parrot/azure-pipelines.yml)
+- [captainkube/azure-pipelines.yml](captainkube/azure-pipelines.yml)
+- [phippy/azure-pipelines.yml](phippy/azure-pipelines.yml)
+- [nodebrady/azure-pipelines.yml](nodebrady/azure-pipelines.yml)
+
+*Coming soon: more to come, a blog article is coming explaining how to setup your Azure release pipeline. Stay tuned!*
 
 ## Issues?
 
