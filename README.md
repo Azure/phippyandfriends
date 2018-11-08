@@ -169,14 +169,9 @@ Watch as more brady ninjas come to life!
 
 ## Leverage Azure DevOps
 
-You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create one Azure build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app by using its associated YAML definition:
+You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create one Azure build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app by using the associated YAML definition: [azure-build-pipeline.yml](azure-build-pipeline.yml).
 
-- [parrot/azure-pipelines.yml](parrot/azure-pipelines.yml)
-- [captainkube/azure-pipelines.yml](captainkube/azure-pipelines.yml)
-- [phippy/azure-pipelines.yml](phippy/azure-pipelines.yml)
-- [nodebrady/azure-pipelines.yml](nodebrady/azure-pipelines.yml)
-
-*Coming soon: more to come, a blog article is coming explaining how to setup your Azure release pipeline. Stay tuned!*
+*Coming soon: more to come, a blog article is coming explaining how to setup your Azure build and release pipelines. Stay tuned!*
 
 ## Issues?
 
