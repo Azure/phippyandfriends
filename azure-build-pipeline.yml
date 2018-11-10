@@ -4,9 +4,8 @@ pool:
 
 variables:
   registryServerName: '$(registryName).azurecr.io'
-  projectName: 'nodebrady'
   imageName: '$(projectName)'
-  # define 4 more variables registryAzureSubscriptionServiceEndpoint, registryName, registryLogin and registryPassword in the build pipeline in UI
+  # define 4 more variables: projectName, registryName, registryLogin and registryPassword in the build pipeline in UI
 
 
 steps:
@@ -33,9 +32,6 @@ steps:
 - bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/$(projectName)/charts/$(projectName)
   displayName: 'helm package'
 
-- task: AzureCLI@1
+- bash: az acr helm push -n $(registryName) -u $(registryLogin) -p $(registryPassword) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
   displayName: 'az acr helm push'
-  inputs:
-    azureSubscription: '$(registryAzureSubscriptionServiceEndpoint)'
-    scriptLocation: inlineScript
-    inlineScript: 'az acr helm push -n $(registryName) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz'
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
