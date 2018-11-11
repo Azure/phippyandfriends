@@ -17,6 +17,10 @@ spec:
       labels:
         app: {{ template "fullname" . }}
     spec:
+{{ if .Values.image.private }}
+      imagePullSecrets:
+        - name: acr-secret
+{{ end }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
