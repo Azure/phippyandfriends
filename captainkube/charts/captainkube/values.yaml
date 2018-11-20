@@ -1,3 +1,4 @@
 replicaCount: 1
 image:
+  private: false
   pullPolicy: Always

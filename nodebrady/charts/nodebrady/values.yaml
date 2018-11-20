@@ -1,5 +1,6 @@
 replicaCount: 1
 image:
+  private: false
   pullPolicy: Always
 service:
   internalPort: 3000
