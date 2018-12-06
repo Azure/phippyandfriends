@@ -171,7 +171,9 @@ Watch as more brady ninjas come to life!
 
 You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create one Azure build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app by using the associated YAML definition: [azure-build-pipeline.yml](azure-build-pipeline.yml).
 
-*Coming soon: more to come, a blog article is coming explaining how to setup your Azure build and release pipelines. Stay tuned!*
+![Azure DevOps workflow](media/azure-devops-workflow.png)
+
+For more information, you could follow this tutorial: [Using Azure DevOps to setup a CI/CD pipeline and deploy to Kubernetes](https://open.microsoft.com/2018/11/27/tutorial-azure-devops-setup-cicd-pipeline-kubernetes-docker-helm).
 
 ## Issues?
 
