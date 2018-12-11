@@ -171,7 +171,9 @@ Watch as more brady ninjas come to life!
 
 You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create one Azure build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app by using the associated YAML definition: [azure-build-pipeline.yml](azure-build-pipeline.yml).
 
-*Coming soon: more to come, a blog article is coming explaining how to setup your Azure build and release pipelines. Stay tuned!*
+![Azure DevOps workflow](media/azure-devops-workflow.png)
+
+For more information, you could follow this tutorial: [Using Azure DevOps to setup a CI/CD pipeline and deploy to Kubernetes](https://open.microsoft.com/2018/11/27/tutorial-azure-devops-setup-cicd-pipeline-kubernetes-docker-helm).
 
 ## Issues?
 
@@ -193,6 +195,7 @@ helm delete --purge parrot
 
 ## Credits
 
-Some awesome people worked on the Phippy and Friends demo. [Stella Lin]() brought the idea to [Brady Gaster](), who then got a **ton** of help from [Ralph Squillace]() and [Ahmed Sabbour](http://twitter.com/sabbour) to bring it to life and [Mathieu Benoit](http://github.com/mathieu-benoit) for his Azure DevOps build pipeline. As mentioned earlier, Phippy and Friends was originally inspired by a blog post written by [Matt](https://twitter.com/technosophos) [Butcher](http://technosophos.com/). 
+Some awesome people worked on the Phippy and Friends demo. [Stella Lin]() brought the idea to [Brady Gaster](), who then got a **ton** of help from [Ralph Squillace]() and [Ahmed Sabbour](http://twitter.com/sabbour) to bring it to life and [Mathieu Benoit](http://github.com/mathieu-benoit) for his Azure DevOps build pipeline. As mentioned earlier, Phippy and Friends was originally inspired by a blog post written by [Matt](https://twitter.com/technosophos) [Butcher](http://technosophos.com/). Phippy and friends were conceived by Matt Butcher, Karen Chu, and Bailey Beougher and are licensed by the CNCF under the CC-BY license. More info at phippy.io. Goldie the Gopher is based on the Go Gopher by Renee French.
+
 
 You can help too, by submitting a pull request and adding your own contributions. When you do, make sure to add your contributions' summary to this section, too!
