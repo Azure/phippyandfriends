@@ -26,9 +26,6 @@ steps:
   inputs:
     helmVersion: 2.11.0
 
-- bash: helm init --client-only --wait
-  displayName: 'helm init'
-
 - bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/$(projectName)/charts/$(projectName)
   displayName: 'helm package'
 
