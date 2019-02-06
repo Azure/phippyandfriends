@@ -1,11 +1,16 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
+trigger:
+  paths:
+    include: 
+    - phippy/
 
 variables:
+  projectName: phippy
   registryServerName: '$(registryName).azurecr.io'
   imageName: '$(projectName)'
-  # define 4 more variables: projectName, registryName, registryLogin and registryPassword in the build pipeline in UI
+  # define 3 more variables: registryName, registryLogin and registryPassword in the build pipeline in UI
 
 
 steps:
@@ -22,9 +27,9 @@ steps:
   condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
 
 - task: HelmInstaller@0
-  displayName: 'Install Helm 2.11.0'
+  displayName: 'Install Helm'
   inputs:
-    helmVersion: 2.11.0
+    helmVersion: 2.12.3
 
 - bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/$(projectName)/charts/$(projectName)
   displayName: 'helm package'
