@@ -2,9 +2,10 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 trigger:
+  batch: true
   branches:
     include: 
-    - master
+    - refs/heads/*
   paths:
     include: 
     - nodebrady/
