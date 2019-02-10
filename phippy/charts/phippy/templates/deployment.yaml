@@ -15,7 +15,7 @@ spec:
         draft: {{ default "draft-app" .Values.draft }}
         app: {{ template "fullname" . }}
     spec:
-{{ if .Values.image.private }}
+{{ if .Values.image.useImagePullSecrets }}
       imagePullSecrets:
         - name: {{ .Chart.Name }}-acr-secret
 {{ end }}
