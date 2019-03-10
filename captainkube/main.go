@@ -76,7 +76,7 @@ func runinformer(done chan struct{}) {
 		log.Printf("\n\n**** Cleared parrot****\n\n")
 	}
 
-	watchList := cache.NewListWatchFromClient(client.Core().RESTClient(), "pods", v1.NamespaceAll, fields.Everything())
+	watchList := cache.NewListWatchFromClient(client.CoreV1().RESTClient(), "pods", v1.NamespaceAll, fields.Everything())
 
 	// Setup the informer that will start watching for pod triggers
 	informer := cache.NewSharedIndexInformer(
