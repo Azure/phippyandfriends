@@ -23,6 +23,7 @@ steps:
 
 - bash: docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
   displayName: 'docker login'
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
 
 - bash: |
     docker push $(registryServerName)/$(imageName):$(build.buildId)
@@ -40,6 +41,7 @@ steps:
   
 - bash: az login --service-principal -u $(registryLogin) -p $(registryPassword) -t $(tenantId)
   displayName: 'az login'
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
 
 - bash: az acr helm push -n $(registryName) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
   displayName: 'az acr helm push'
