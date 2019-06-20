@@ -18,16 +18,12 @@ variables:
 
 
 steps:
-- bash: docker build -f $(system.defaultWorkingDirectory)/$(projectName)/Dockerfile -t $(registryServerName)/$(imageName):$(build.buildId) -t $(registryServerName)/$(imageName):latest $(system.defaultWorkingDirectory)/$(projectName)
+- bash: docker build -f $(system.defaultWorkingDirectory)/$(projectName)/Dockerfile -t $(registryServerName)/$(imageName):$(build.buildId) $(system.defaultWorkingDirectory)/$(projectName)
   displayName: 'docker build'
 
-- bash: docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
-  displayName: 'docker login'
-  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
-
 - bash: |
+    docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
     docker push $(registryServerName)/$(imageName):$(build.buildId)
-    docker push $(registryServerName)/$(imageName):latest
   displayName: 'docker push'
   condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
 
