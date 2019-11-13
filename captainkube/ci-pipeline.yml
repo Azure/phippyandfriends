@@ -1,0 +1,23 @@
+trigger:
+  batch: true
+  branches:
+    include: 
+    - '*'
+  paths:
+    include: 
+    - captainkube/
+    - common/ci-steps-template.yml
+    
+pr: none
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+variables:
+- template: ../common/ci-vars-template.yml
+  parameters:
+      projectName: captainkube
+  # define 3 more variables: registryName, registryLogin and registryPassword in the Azure pipeline UI definition
+
+steps:
+- template: ../common/ci-steps-template.yml

@@ -1,0 +1,57 @@
+steps:
+- bash: |
+    cd $(projectName)
+    docker build \
+        -t $(registryServerName)/$(imageName):$(imageTag) \
+        .
+  failOnStderr: true
+  displayName: 'docker build'
+- bash: |
+    echo $(registryPassword) | docker login \
+        $(registryServerName) \
+        -u $(registryLogin) \
+        --password-stdin
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+  displayName: 'docker login'
+- bash: |
+    docker push $(registryServerName)/$(imageName):$(imageTag)
+  failOnStderr: true
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+  displayName: 'docker push'
+- task: HelmInstaller@1
+  displayName: 'install helm'
+  inputs:
+    helmVersionToInstall: $(helmVersion)
+- bash: |
+    cd $(projectName)
+    helm init \
+        --client-only
+    helm package \
+        charts/$(projectName)
+  failOnStderr: true
+  displayName: 'helm package'
+- bash: |
+    cd $(projectName)
+    chartPackage=$(ls $(projectName)-*.tgz)
+    newChartVersion=$(echo $(basename $chartPackage) | egrep -o '[a-z][0-9].*[0-9]')
+    previousChartVersion=$(az acr helm list \
+                                    -n $(registryName) \
+                                    -u $(registryLogin) \
+                                    -p $(registryPassword) \
+                                    --query "$(projectName)[?version=='$newChartVersion'].version" \
+                                    -o tsv)
+    if [ "$newChartVersion" != "$previousChartVersion" ]; then
+        az acr helm push \
+            -n $(registryName) \
+            -u $(registryLogin) \
+            -p $(registryPassword) \
+            $chartPackage
+    fi
+    echo $(jq -n --arg tag "$(imageTag)" --arg version "$newChartVersion" '{helmChartVersion: $version, dockerImageTag: $tag}') > $(build.artifactStagingDirectory)/variables.json
+  failOnStderr: true
+  name: helmPush
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+  displayName: 'az acr helm push'
+- publish: $(build.artifactStagingDirectory)
+  artifact: build-artifact
+  condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))

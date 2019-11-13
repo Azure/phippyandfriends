@@ -1,0 +1,9 @@
+parameters:
+  projectName: ''
+
+variables:
+  helmVersion: 2.16.1
+  registryServerName: '$(registryName).azurecr.io'
+  projectName: ${{ parameters.projectName }}
+  imageName: ${{ parameters.projectName }}
+  imageTag: $(build.buildId)

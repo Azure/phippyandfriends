@@ -1,0 +1,36 @@
+trigger: none
+pr: none
+
+variables:
+- template: ../common/cd-vars-template.yml
+  parameters:
+      projectName: parrot
+  # define 3 more variables: registryName, registryLogin and registryPassword in the Azure pipeline UI definition
+
+resources: 
+  pipelines:
+  - pipeline: ci-pipeline
+    source: parrot-ci
+    trigger:
+      enabled: true
+      branches:
+        include:
+          - master
+
+stages:
+- stage: development
+  displayName: development
+  jobs:
+  - deployment: development
+    variables:
+      k8sNamespace: 'phippyandfriends'
+      # define 4 more variables: aks, aksSpId, aksSpSecret and aksSpTenantId in the Azure pipeline UI definition
+    displayName: deploy helm chart into AKS
+    pool:
+      vmImage: 'ubuntu-16.04'
+    environment: development-$(projectName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: ../common/cd-steps-template.yml

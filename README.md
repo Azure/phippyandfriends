@@ -169,11 +169,11 @@ Watch as more brady ninjas come to life!
 
 ## Leverage Azure DevOps
 
-You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create one Azure build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app by using the associated YAML definition: 
-- [captainkube/azure-build-pipeline.yml](captainkube/azure-build-pipeline.yml)
-- [nodebrady/azure-build-pipeline.yml](nodebrady/azure-build-pipeline.yml)
-- [parrot/azure-build-pipeline.yml](parrot/azure-build-pipeline.yml)
-- [phippy/azure-build-pipeline.yml](phippy/azure-build-pipeline.yml)
+You could also leverage [Azure DevOps](https://docs.microsoft.com/azure/devops) to implement a [CI/CD pipeline](https://docs.microsoft.com/azure/devops/pipelines) for each app. For that you could [create Azure build pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml#get-your-first-build) per app for both Build/CI and Release/CD by using the associated YAML definitions: 
+- [captainkube/ci-pipeline.yml](captainkube/ci-pipeline.yml) and [captainkube/cd-pipeline.yml](captainkube/cd-pipeline.yml)
+- [nodebrady/ci-pipeline.yml](nodebrady/ci-pipeline.yml) and [nodebrady/cd-pipeline.yml](nodebrady/cd-pipeline.yml)
+- [parrot/ci-pipeline.yml](parrot/ci-pipeline.yml) and [parrot/cd-pipeline.yml](parrot/cd-pipeline.yml)
+- [phippy/ci-pipeline.yml](phippy/ci-pipeline.yml) and [phippy/cd-pipeline.yml](phippy/cd-pipeline.yml)
 
 ![Azure DevOps workflow](media/azure-devops-workflow.png)
 

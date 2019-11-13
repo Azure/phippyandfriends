@@ -1,0 +1,41 @@
+steps:
+- checkout: none
+- task: HelmInstaller@1
+  displayName: 'install helm'
+  inputs:
+    helmVersionToInstall: $(helmVersion)
+- download: ci-pipeline
+  artifact: build-artifact
+- bash: |
+   az login \
+        --service-principal \
+        -u $(aksSpId) \
+        -p $(aksSpSecret) \
+        --tenant $(aksSpTenantId)
+    az aks get-credentials \
+        -n $(aks) \
+        -g $(aks)
+    helm init \
+        --upgrade \
+        --wait \
+        --service-account tiller \
+        --force-upgrade
+    helm repo add \
+        $(registryName) \
+        https://$(registryServerName)/helm/v1/repo \
+        --username $(registryLogin) \
+        --password $(registryPassword)
+    helmChartVersion=$(jq .helmChartVersion $(pipeline.workspace)/ci-pipeline/build-artifact/variables.json -r)
+    dockerImageTag=$(jq .dockerImageTag $(pipeline.workspace)/ci-pipeline/build-artifact/variables.json -r)
+    helm upgrade \
+        --namespace $(k8sNamespace) \
+        --install \
+        --wait \
+        --version $helmChartVersion \
+        --set image.repository=$(registryServerName)/$(projectName) \
+        --set image.tag=$dockerImageTag \
+        --set ingress.enabled=false \
+        $(projectName) \
+        $(registryName)/$(projectName)
+  failOnStderr: true
+  displayName: 'deploy helm chart'
