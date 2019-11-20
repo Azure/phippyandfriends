@@ -27,6 +27,7 @@ steps:
     helm init \
         --client-only
     helm package \
+        --app-version $(imageTag) \
         charts/$(projectName)
   failOnStderr: true
   displayName: 'helm package'
