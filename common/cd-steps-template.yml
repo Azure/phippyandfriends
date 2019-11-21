@@ -15,11 +15,6 @@ steps:
     az aks get-credentials \
         -n $(aks) \
         -g $(aks)
-    helm init \
-        --upgrade \
-        --wait \
-        --service-account tiller \
-        --force-upgrade
     helm repo add \
         $(registryName) \
         https://$(registryServerName)/helm/v1/repo \

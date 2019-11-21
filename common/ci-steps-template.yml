@@ -24,8 +24,6 @@ steps:
     helmVersionToInstall: $(helmVersion)
 - bash: |
     cd $(projectName)
-    helm init \
-        --client-only
     helm package \
         --app-version $(imageTag) \
         charts/$(projectName)
