@@ -1,7 +1,7 @@
 # Build
-FROM golang:1.10.3 as builder
+FROM golang:golang:1.13.4 as builder
 
-WORKDIR /go/src/github.com/sabbour/phippy
+WORKDIR /build
 COPY main.go .
 RUN go get -d -v
 # temporary workaroud for https://github.com/Azure/phippyandfriends/issues/30
@@ -13,5 +13,5 @@ FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-COPY --from=builder /go/src/github.com/sabbour/phippy/app .
+COPY --from=builder /build/app .
 CMD ["./app"]
