@@ -21,14 +21,12 @@ steps:
         --username $(registryLogin) \
         --password $(registryPassword)
     helmChartVersion=$(jq .helmChartVersion $(pipeline.workspace)/ci-pipeline/build-artifact/variables.json -r)
-    dockerImageTag=$(jq .dockerImageTag $(pipeline.workspace)/ci-pipeline/build-artifact/variables.json -r)
     helm upgrade \
         --namespace $(k8sNamespace) \
         --install \
         --wait \
         --version $helmChartVersion \
         --set image.repository=$(registryServerName)/$(projectName) \
-        --set image.tag=$dockerImageTag \
         --set ingress.enabled=false \
         $(projectName) \
         $(registryName)/$(projectName)

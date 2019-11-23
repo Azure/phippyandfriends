@@ -46,7 +46,7 @@ steps:
             -p $(registryPassword) \
             $chartPackage
     fi
-    echo $(jq -n --arg tag "$(imageTag)" --arg version "$newChartVersion" '{helmChartVersion: $version, dockerImageTag: $tag}') > $(build.artifactStagingDirectory)/variables.json
+    echo $(jq -n --arg version "$newChartVersion" '{helmChartVersion: $version}') > $(build.artifactStagingDirectory)/variables.json
   failOnStderr: true
   name: helmPush
   condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
