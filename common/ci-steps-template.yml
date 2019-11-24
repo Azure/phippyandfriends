@@ -25,6 +25,7 @@ steps:
 - bash: |
     cd $(projectName)
     helm package \
+        --version $(helmChartVersion) \
         --app-version $(imageTag) \
         charts/$(projectName)
   failOnStderr: true
@@ -32,21 +33,12 @@ steps:
 - bash: |
     cd $(projectName)
     chartPackage=$(ls $(projectName)-*.tgz)
-    newChartVersion=$(echo $(basename $chartPackage) | egrep -o '[a-z][0-9].*[0-9]')
-    previousChartVersion=$(az acr helm list \
-                                    -n $(registryName) \
-                                    -u $(registryLogin) \
-                                    -p $(registryPassword) \
-                                    --query "$(projectName)[?version=='$newChartVersion'].version" \
-                                    -o tsv)
-    if [ "$newChartVersion" != "$previousChartVersion" ]; then
-        az acr helm push \
-            -n $(registryName) \
-            -u $(registryLogin) \
-            -p $(registryPassword) \
-            $chartPackage
-    fi
-    echo $(jq -n --arg version "$newChartVersion" '{helmChartVersion: $version}') > $(build.artifactStagingDirectory)/variables.json
+    az acr helm push \
+        -n $(registryName) \
+        -u $(registryLogin) \
+        -p $(registryPassword) \
+        $chartPackage
+    echo $(jq -n --arg version "$(helmChartVersion)" '{helmChartVersion: $version}') > $(build.artifactStagingDirectory)/variables.json
   failOnStderr: true
   name: helmPush
   condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
