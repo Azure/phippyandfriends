@@ -2,6 +2,6 @@ parameters:
   projectName: ''
 
 variables:
-  helmVersion: 3.0.1
+  helmVersion: 3.0.2
   registryServerName: '$(registryName).azurecr.io'
   projectName: ${{ parameters.projectName }}
