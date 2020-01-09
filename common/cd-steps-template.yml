@@ -14,7 +14,7 @@ steps:
         --tenant $(aksSpTenantId)
     az aks get-credentials \
         -n $(aks) \
-        -g $(aks)
+        -g $(rg)
     helm repo add \
         $(registryName) \
         https://$(registryServerName)/helm/v1/repo \
