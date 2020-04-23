@@ -27,7 +27,7 @@ stages:
       # define 5 more variables: aks, rg, aksSpId, aksSpSecret and aksSpTenantId in the Azure pipeline UI definition
     displayName: deploy helm chart into AKS
     pool:
-      vmImage: 'ubuntu-16.04'
+      vmImage: ubuntu-latest
     environment: development-$(projectName)
     strategy:
       runOnce:

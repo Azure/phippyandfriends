@@ -18,7 +18,7 @@ WORKDIR /app
 COPY . /app
 
 # Release with Alpine
-FROM node:13.10.1-alpine AS release  
+FROM node:14.0.0-alpine AS release  
 
 # Create app directory
 WORKDIR /app
