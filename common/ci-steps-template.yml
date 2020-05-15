@@ -7,7 +7,7 @@ steps:
   failOnStderr: true
   displayName: 'docker build'
 - bash: |
-    echo $(registryPassword) | docker login \
+    echo '$(registryPassword)' | docker login \
         $(registryServerName) \
         -u $(registryLogin) \
         --password-stdin
@@ -36,7 +36,7 @@ steps:
     az acr helm push \
         -n $(registryName) \
         -u $(registryLogin) \
-        -p $(registryPassword) \
+        -p '$(registryPassword)' \
         $chartPackage
     echo $(jq -n --arg version "$(helmChartVersion)" '{helmChartVersion: $version}') > $(build.artifactStagingDirectory)/variables.json
   failOnStderr: true
